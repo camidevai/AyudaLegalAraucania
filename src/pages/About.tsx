@@ -33,7 +33,7 @@ const About: React.FC = () => {
               <div className="relative">
                 <div className="absolute -top-4 -left-4 w-24 h-24 md:w-32 md:h-32 bg-primary-500 rounded-lg z-0"></div>
                 <img 
-                  src="https://images.pexels.com/photos/5668859/pexels-photo-5668859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  src="/img/sobremi.jpeg" 
                   alt="Abogado profesional" 
                   className="rounded-lg shadow-xl relative z-10 w-full h-auto object-cover"
                 />

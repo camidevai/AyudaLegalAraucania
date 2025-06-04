@@ -301,19 +301,7 @@ const Footer: React.FC = () => {
         </motion.div>
 
         {/* Back to Top Button */}
-        <motion.button
-          className="fixed bottom-8 right-8 p-3 bg-accent-500 hover:bg-accent-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: true }}
-          aria-label="Volver arriba"
-        >
-          <ArrowUpRight className="w-5 h-5 rotate-45" />
-        </motion.button>
+    
       </div>
     </footer>
   );

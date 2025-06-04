@@ -124,18 +124,7 @@ const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
             >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent-300">500+</div>
-                <div className="text-sm text-white/80">Casos Exitosos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent-300">15+</div>
-                <div className="text-sm text-white/80">Años Experiencia</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent-300">98%</div>
-                <div className="text-sm text-white/80">Satisfacción</div>
-              </div>
+
             </motion.div>
           </motion.div>
 
