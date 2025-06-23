@@ -44,8 +44,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary-500 text-lg">Teléfono</h4>
-                    <a href="tel:+56912345678" className="text-lg text-accent-500 hover:text-accent-700">
-                      +56 9 1234 5678
+                    <a href="tel:+56982243242" className="text-lg text-accent-500 hover:text-accent-700">
+                      +56 9 8224 3242
                     </a>
                   </div>
                 </div>
@@ -56,8 +56,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary-500 text-lg">Email</h4>
-                    <a href="mailto:consultas@abogadoprofesional.cl" className="text-lg text-accent-500 hover:text-accent-700">
-                      consultas@abogadoprofesional.cl
+                    <a href="mailto:Ayuda.legal.araucania@gmail.com" className="text-lg text-accent-500 hover:text-accent-700">
+                      Ayuda.legal.araucania@gmail.com
                     </a>
                   </div>
                 </div>
@@ -69,8 +69,8 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-bold text-primary-500 text-lg">Dirección</h4>
                     <p className="text-gray-600">
-                      Oficina en Santiago Centro, Región Metropolitana<br />
-                      (Dirección exacta proporcionada al agendar cita)
+                      Edificio Capital, Antonio Varas #989<br />
+                      Oficina 1302, Temuco
                     </p>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
               <div className="text-center">
                 <MapPin className="h-12 w-12 mx-auto mb-2" />
                 <p className="text-xl font-medium">Mapa de ubicación</p>
-                <p className="text-sm text-gray-600">Santiago Centro, Región Metropolitana</p>
+                <p className="text-sm text-gray-600">Edificio Capital, Antonio Varas #989, Of. 1302, Temuco</p>
               </div>
             </div>
           </div>

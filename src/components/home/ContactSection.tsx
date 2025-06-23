@@ -26,8 +26,8 @@ const ContactSection: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-primary-500 text-lg">Contacto Telefónico</h4>
                   <p className="text-gray-600">Disponible de lunes a viernes de 9:00 a 18:00 hrs.</p>
-                  <a href="tel:+56912345678" className="text-lg font-medium text-accent-500 hover:text-accent-700">
-                    +56 9 1234 5678
+                  <a href="tel:+56982243242" className="text-lg font-medium text-accent-500 hover:text-accent-700">
+                    +56 9 8224 3242
                   </a>
                 </div>
               </div>
@@ -39,8 +39,8 @@ const ContactSection: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-primary-500 text-lg">Correo Electrónico</h4>
                   <p className="text-gray-600">Respuesta en un máximo de 24 horas hábiles.</p>
-                  <a href="mailto:consultas@abogadoprofesional.cl" className="text-lg font-medium text-accent-500 hover:text-accent-700">
-                    consultas@abogadoprofesional.cl
+                  <a href="mailto:Ayuda.legal.araucania@gmail.com" className="text-lg font-medium text-accent-500 hover:text-accent-700">
+                    Ayuda.legal.araucania@gmail.com
                   </a>
                 </div>
               </div>

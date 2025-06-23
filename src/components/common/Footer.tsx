@@ -195,9 +195,9 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-6 gradient-text-gold">Contacto</h3>
             <ul className="space-y-4">
               {[
-                { icon: Phone, text: "+56 9 1234 5678", href: "tel:+56912345678" },
-                { icon: Mail, text: "consultas@abogadoprofesional.cl", href: "mailto:consultas@abogadoprofesional.cl" },
-                { icon: MapPin, text: "Santiago Centro, Región Metropolitana", href: "#" }
+                { icon: Phone, text: "+56 9 8224 3242", href: "tel:+56982243242" },
+                { icon: Mail, text: "Ayuda.legal.araucania@gmail.com", href: "mailto:Ayuda.legal.araucania@gmail.com" },
+                { icon: MapPin, text: "Edificio Capital, Antonio Varas #989, Of. 1302, Temuco", href: "#" }
               ].map(({ icon: Icon, text, href }, index) => (
                 <motion.li
                   key={text}

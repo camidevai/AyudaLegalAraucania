@@ -190,7 +190,7 @@ const About: React.FC = () => {
             Estoy a su disposición para atender su caso con la dedicación y profesionalismo que merece.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="tel:+56912345678" className="btn-accent">
+            <a href="tel:+56982243242" className="btn-accent">
               Llame ahora
             </a>
             <a href="/contacto" className="btn bg-white text-primary-500 hover:bg-gray-100">

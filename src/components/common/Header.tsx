@@ -33,8 +33,8 @@ const Header: React.FC = () => {
     <motion.header
       className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-soft border-b border-white/20 py-3'
-          : 'bg-transparent py-6'
+          ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-white/20 py-3'
+          : 'bg-primary-600/95 backdrop-blur-md shadow-soft py-4'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -43,25 +43,22 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center group">
-            <motion.div
-              className="relative"
-              whileHover={{ rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <Scale className="h-10 w-10 text-primary-500 group-hover:text-primary-600 transition-colors duration-300" />
-              <motion.div
-                className="absolute inset-0 bg-primary-500/20 rounded-full blur-lg"
-                initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1.2, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
+            <img
+            src="/img/logotipo.png"
+            alt="Logo"
+            className="w-16 h-16"
+            />
             <div className="ml-3">
-              <span className="text-2xl font-display font-bold gradient-text">
-                Abogado
-              </span>
-              <div className="text-xs text-secondary-500 font-medium tracking-wider">
-                PROFESIONAL
+              <div className={`text-3xl font-serif font-bold leading-tight transition-colors duration-500 ${
+                scrolled ? 'text-secondary-900' : 'text-white'
+              }`}>
+                Asesorías <span className="text-[#D39C2E]">Legales</span>
+              </div>
+              <div className="text-[10px] tracking-widest uppercase mt-1">
+                <span className={`transition-colors duration-500 ${
+                  scrolled ? 'text-secondary-700' : 'text-white/90'
+                }`}>Ayuda Legal </span>
+                <span className="text-[#D39C2E] font-semibold">Araucanía</span>
               </div>
             </div>
           </Link>
@@ -78,7 +75,9 @@ const Header: React.FC = () => {
                 <NavLink
                   to={item.href}
                   className={({ isActive }) =>
-                    `nav-link ${isActive ? 'nav-link-active' : ''}`
+                    scrolled
+                      ? `nav-link-header-scrolled ${isActive ? 'nav-link-header-scrolled-active' : ''}`
+                      : `nav-link-header ${isActive ? 'nav-link-header-active' : ''}`
                   }
                 >
                   {item.label}
@@ -92,8 +91,12 @@ const Header: React.FC = () => {
               className="ml-6"
             >
               <a
-                href="tel:+56912345678"
-                className="btn-primary"
+                href="tel:+56982243242"
+                className={`btn transition-all duration-500 ${
+                  scrolled
+                    ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-soft hover:shadow-glow'
+                    : 'bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30'
+                }`}
               >
                 <Phone className="h-4 w-4 mr-2" />
                 Llámanos
@@ -109,8 +112,14 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-500/10 text-primary-500"
-              whileHover={{ bg: "rgba(99, 102, 241, 0.2)" }}
+              className={`w-8 h-8 flex items-center justify-center rounded-lg transition-colors duration-500 ${
+                scrolled
+                  ? 'bg-primary-500/10 text-primary-500'
+                  : 'bg-white/20 text-white'
+              }`}
+              whileHover={{
+                backgroundColor: scrolled ? "rgba(99, 102, 241, 0.2)" : "rgba(255, 255, 255, 0.3)"
+              }}
             >
               <AnimatePresence mode="wait">
                 {isMenuOpen ? (
@@ -198,7 +207,7 @@ const Header: React.FC = () => {
                     className="pt-6"
                   >
                     <a
-                      href="tel:+56912345678"
+                      href="tel:+56982243242"
                       className="btn-primary w-full"
                     >
                       <Phone className="h-4 w-4 mr-2" />
