@@ -5,8 +5,6 @@ export const navItems: NavItem[] = [
   { label: 'Sobre Mí', href: '/sobre-mi' },
   { label: 'Áreas de Práctica', href: '/areas-practica' },
   { label: 'Casos Destacados', href: '/casos' },
-  { label: 'Testimonios', href: '/testimonios' },
-  { label: 'Blog Jurídico', href: '/blog' },
   { label: 'Contacto', href: '/contacto' },
 ];
 

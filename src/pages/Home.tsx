@@ -4,7 +4,6 @@ import InAction from '../components/home/InAction';
 import PracticeAreasSection from '../components/home/PracticeAreasSection';
 import AboutSection from '../components/home/AboutSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
-import BlogSection from '../components/home/BlogSection';
 import FAQSection from '../components/home/FAQSection';
 import ContactSection from '../components/home/ContactSection';
 
@@ -21,7 +20,6 @@ const Home: React.FC = () => {
       <AboutSection />
       <PracticeAreasSection />
       <TestimonialsSection />
-      <BlogSection />
       <FAQSection />
       <ContactSection />
     </div>

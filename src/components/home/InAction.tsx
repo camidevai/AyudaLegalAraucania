@@ -286,13 +286,7 @@ const InAction: React.FC = () => {
               <Calendar className="h-5 w-5 mr-2" />
               Agendar Consulta
             </a>
-            <a
-              href="#casos"
-              className="btn-outline"
-            >
-              Ver Más Casos
-              <ArrowRight className="h-5 w-5 ml-2" />
-            </a>
+            
           </div>
         </motion.div>
       </div>
@@ -316,7 +310,6 @@ const InAction: React.FC = () => {
             >
               <img
                 src={audienceImages[selectedImage].src}
-                alt={audienceImages[selectedImage].title}
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
               <button

@@ -160,8 +160,6 @@ const Footer: React.FC = () => {
               {[
                 { name: "Sobre el Abogado", href: "/sobre-mi" },
                 { name: "Casos Destacados", href: "/casos" },
-                { name: "Testimonios", href: "/testimonios" },
-                { name: "Blog Jurídico", href: "/blog" },
                 { name: "Contacto", href: "/contacto" }
               ].map((link, index) => (
                 <motion.li
@@ -264,15 +262,8 @@ const Footer: React.FC = () => {
               &copy; {currentYear} Abogado Profesional. Todos los derechos reservados.
             </p>
             <div className="flex items-center text-xs text-white/50">
-              <span>Desarrollado con</span>
-              <motion.span
-                className="mx-1 text-accent-400"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                ⚖️
-              </motion.span>
-              <span>para la justicia</span>
+              <span> Pagina Desarrollada por infomatik-ai</span>
+            
             </div>
           </div>
 
