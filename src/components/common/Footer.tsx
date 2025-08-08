@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Scale, Award, ArrowUpRight, Clock } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin, Award, ArrowUpRight, Clock } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -54,25 +54,24 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-6">
-              <motion.div
-                className="relative"
-                whileHover={{ rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Scale className="h-10 w-10 text-accent-400" />
-                <motion.div
-                  className="absolute inset-0 bg-accent-400/20 rounded-full blur-lg"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ scale: 1.5, opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+              <Link to="/" className="flex items-center group hover:opacity-80 transition-opacity duration-300">
+                <motion.img
+                  src="/img/logotipo.png"
+                  alt="Logo Ayuda Legal Araucanía"
+                  className="w-16 h-16 group-hover:scale-105 transition-transform duration-300"
+                  whileHover={{ rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 />
-              </motion.div>
-              <div className="ml-3">
-                <span className="text-2xl font-display font-bold">Abogado</span>
-                <div className="text-xs text-white/70 font-medium tracking-wider">
-                  PROFESIONAL
+                <div className="ml-3">
+                  <div className="text-3xl font-serif font-bold leading-tight text-white transition-colors duration-500 group-hover:text-accent-400">
+                    Asesorías <span className="text-[#D39C2E]">Legales</span>
+                  </div>
+                  <div className="text-[10px] tracking-widest uppercase mt-1">
+                    <span className="text-white/90 transition-colors duration-500 group-hover:text-white">Ayuda Legal </span>
+                    <span className="text-[#D39C2E] font-semibold">Araucanía</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
 
             <p className="text-white/80 mb-6 leading-relaxed">
@@ -89,13 +88,15 @@ const Footer: React.FC = () => {
             {/* Social Links */}
             <div className="flex space-x-4">
               {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" }
+                { icon: Instagram, href: "https://www.instagram.com/ayuda_legal_chile/", label: "Instagram" },
+                { icon: Mail, href: "mailto:Ayuda.legal.araucania@gmail.com", label: "Email" },
+                { icon: Phone, href: "tel:+56982243242", label: "Teléfono" }
               ].map(({ icon: Icon, href, label }, index) => (
                 <motion.a
                   key={label}
                   href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="group p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-white/70 hover:text-white hover:bg-accent-500/20 transition-all duration-300"
                   aria-label={label}
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -125,7 +126,8 @@ const Footer: React.FC = () => {
                 { name: "Derecho Penal", href: "/areas-practica#derecho-penal" },
                 { name: "Derecho Laboral", href: "/areas-practica#derecho-laboral" },
                 { name: "Derecho de Familia", href: "/areas-practica#derecho-familia" },
-                { name: "Derecho Comercial", href: "/areas-practica#derecho-comercial" }
+                { name: "Derecho Comercial", href: "/areas-practica#derecho-comercial" },
+                { name: "Derecho Inmobiliario", href: "/areas-practica#derecho-inmobiliario" }
               ].map((service, index) => (
                 <motion.li
                   key={service.name}
@@ -261,10 +263,6 @@ const Footer: React.FC = () => {
             <p className="text-sm text-white/70 mb-2 md:mb-0 md:mr-6">
               &copy; {currentYear} Abogado Profesional. Todos los derechos reservados.
             </p>
-            <div className="flex items-center text-xs text-white/50">
-              <span> Pagina Desarrollada por infomatik-ai</span>
-            
-            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm">
@@ -291,8 +289,23 @@ const Footer: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Back to Top Button */}
-    
+        {/* Developer Credits */}
+        <div className="mt-8 pt-6 border-t border-white/10">
+          <div className="text-center">
+            <p className="text-xs text-white/40">
+              Sitio web desarrollado por{' '}
+              <a
+                href="https://www.informatik-ai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/50 hover:text-accent-400 transition-colors duration-300 underline underline-offset-2"
+              >
+                Informatik-AI
+              </a>
+            </p>
+          </div>
+        </div>
+
       </div>
     </footer>
   );

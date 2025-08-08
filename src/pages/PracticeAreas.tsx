@@ -112,6 +112,52 @@ const PracticeAreas: React.FC = () => {
                     </>
                   )}
 
+                  {area.id === 'derecho-familia' && (
+                    <>
+                      <p className="text-gray-700 mb-6">
+                        El derecho de familia aborda las relaciones familiares y sus aspectos legales. Mi experiencia incluye:
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+                        <li>Procesos de divorcio y separación</li>
+                        <li>Custodia y régimen de visitas</li>
+                        <li>Pensiones alimenticias y manutención</li>
+                        <li>Adopciones y filiación</li>
+                        <li>Violencia intrafamiliar y medidas de protección</li>
+                      </ul>
+                    </>
+                  )}
+
+                  {area.id === 'derecho-comercial' && (
+                    <>
+                      <p className="text-gray-700 mb-6">
+                        El derecho comercial regula las actividades empresariales y mercantiles. Mis servicios comprenden:
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+                        <li>Constitución y modificación de sociedades</li>
+                        <li>Contratos comerciales y mercantiles</li>
+                        <li>Fusiones y adquisiciones empresariales</li>
+                        <li>Propiedad intelectual y marcas</li>
+                        <li>Resolución de conflictos comerciales</li>
+                      </ul>
+                    </>
+                  )}
+
+                  {area.id === 'derecho-inmobiliario' && (
+                    <>
+                      <p className="text-gray-700 mb-6">
+                        El derecho inmobiliario abarca todas las transacciones y aspectos legales relacionados con bienes raíces. Mi experiencia incluye:
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+                        <li>Compraventa de propiedades y terrenos</li>
+                        <li>Contratos de arrendamiento y subarrendamiento</li>
+                        <li>Constitución y alzamiento de hipotecas</li>
+                        <li>Servidumbres y derechos de usufructo</li>
+                        <li>Regularización de títulos de dominio</li>
+                        <li>Litigios por desalojos y recuperación de inmuebles</li>
+                      </ul>
+                    </>
+                  )}
+
                   <a
                     href="/contacto"
                     className="btn-primary inline-flex items-center"
@@ -147,7 +193,7 @@ const PracticeAreas: React.FC = () => {
               </p>
             </div>
             <div className="lg:col-span-2 flex flex-wrap gap-4 justify-center lg:justify-end">
-              <a href="tel:+56912345678" className="btn-accent">
+              <a href="tel:+56982243242" className="btn-accent">
                 Llame ahora
               </a>
               <a href="/contacto" className="btn bg-white text-primary-500 hover:bg-gray-100">

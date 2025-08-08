@@ -283,4 +283,101 @@
   .animate-float-slow {
     animation: float 8s ease-in-out infinite;
   }
+
+  /* WhatsApp Button - Always Visible */
+  .whatsapp-button {
+    position: fixed !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    background-color: #25d366 !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #128c7e !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6) !important;
+  }
+
+  @media (min-width: 640px) {
+    .whatsapp-button {
+      bottom: 1.5rem !important;
+      right: 1.5rem !important;
+      width: 4rem !important;
+      height: 4rem !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .whatsapp-button {
+      bottom: 2rem !important;
+      right: 2rem !important;
+    }
+  }
+
+  /* Ensure button is always on top */
+  .whatsapp-button {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Pulse animation for WhatsApp button */
+  @keyframes whatsapp-pulse {
+    0% {
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    }
+    100% {
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+  }
+
+  .whatsapp-button {
+    animation: whatsapp-pulse 2s infinite;
+  }
+
+  .whatsapp-button:hover {
+    animation: none;
+  }
+
+  /* Mobile specific adjustments */
+  @media (max-width: 639px) {
+    .whatsapp-button {
+      bottom: 1rem !important;
+      right: 1rem !important;
+      width: 3.5rem !important;
+      height: 3.5rem !important;
+    }
+  }
+
+  /* Tablet specific adjustments */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .whatsapp-button {
+      bottom: 1.5rem !important;
+      right: 1.5rem !important;
+      width: 4rem !important;
+      height: 4rem !important;
+    }
+  }
+
+  /* Desktop specific adjustments */
+  @media (min-width: 1024px) {
+    .whatsapp-button {
+      bottom: 2rem !important;
+      right: 2rem !important;
+      width: 4rem !important;
+      height: 4rem !important;
+    }
+  }
 }

@@ -206,14 +206,159 @@ const Contact: React.FC = () => {
       {/* Map Section - Placeholder */}
       <section className="py-10 bg-gray-50">
         <div className="container-custom">
-          <div className="rounded-lg overflow-hidden shadow-lg h-64 md:h-96 bg-gray-200">
-            <div className="h-full w-full flex items-center justify-center bg-primary-100 text-primary-500">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 mx-auto mb-2" />
-                <p className="text-xl font-medium">Mapa de ubicación</p>
-                <p className="text-sm text-gray-600">Edificio Capital, Antonio Varas #989, Of. 1302, Temuco</p>
+          <div className="rounded-lg overflow-hidden shadow-lg h-64 md:h-96 bg-gray-200 relative">
+            <iframe
+              src="https://maps.google.com/maps?q=Antonio+Varas+989,+Temuco,+Chile&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ubicación Oficina - Edificio Capital, Antonio Varas #989, Of. 1302, Temuco"
+              className="absolute inset-0"
+            ></iframe>
+
+            {/* Overlay con información de contacto */}
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
+              <div className="flex items-start">
+                <MapPin className="h-5 w-5 text-primary-500 mt-1 mr-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-1">Nuestra Oficina</h3>
+                  <p className="text-sm text-gray-600 mb-2">
+                    Edificio Capital<br />
+                    Antonio Varas #989, Of. 1302<br />
+                    Temuco, Chile
+                  </p>
+                  <div className="flex items-center text-xs text-primary-600">
+                    <Phone className="h-3 w-3 mr-1" />
+                    <span>+56 9 8224 3242</span>
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* Botón para abrir en Google Maps */}
+            <div className="absolute bottom-4 right-4">
+              <a
+                href="https://maps.google.com/?q=Antonio+Varas+989,+Temuco,+Chile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 flex items-center shadow-lg"
+              >
+                <MapPin className="h-4 w-4 mr-2" />
+                Ver en Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Details */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="section-heading inline-block mx-auto mb-6">Cómo Llegar</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Nuestra oficina está ubicada en el centro de Temuco, con fácil acceso en transporte público y privado.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="card p-6"
+              >
+                <div className="flex items-start mb-4">
+                  <MapPin className="h-6 w-6 text-primary-500 mt-1 mr-3" />
+                  <div>
+                    <h3 className="text-xl font-bold text-primary-500 mb-2">Dirección Exacta</h3>
+                    <p className="text-gray-700 mb-2">
+                      <strong>Edificio Capital</strong><br />
+                      Antonio Varas #989, Oficina 1302<br />
+                      Temuco, Región de La Araucanía<br />
+                      Chile
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Piso 13, Oficina 1302
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="card p-6"
+              >
+                <div className="flex items-start mb-4">
+                  <Clock className="h-6 w-6 text-primary-500 mt-1 mr-3" />
+                  <div>
+                    <h3 className="text-xl font-bold text-primary-500 mb-2">Horarios de Atención</h3>
+                    <div className="space-y-2 text-gray-700">
+                      <div className="flex justify-between">
+                        <span>Lunes - Viernes:</span>
+                        <span className="font-medium">9:00 - 18:00</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Sábados:</span>
+                        <span className="font-medium">9:00 - 13:00</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Domingos:</span>
+                        <span className="font-medium text-red-600">Cerrado</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 mt-3">
+                      * Atención con cita previa
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mt-8 bg-primary-50 p-6 rounded-lg"
+            >
+              <h3 className="text-lg font-bold text-primary-700 mb-4 flex items-center">
+                <MapPin className="h-5 w-5 mr-2" />
+                Referencias para llegar
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
+                <div>
+                  <p className="font-medium mb-2">🚗 En vehículo:</p>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>Desde Ruta 5: Tomar salida Temuco Centro</li>
+                    <li>Dirigirse hacia Antonio Varas</li>
+                    <li>Estacionamiento disponible en el edificio</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-medium mb-2">🚌 En transporte público:</p>
+                  <ul className="list-disc list-inside space-y-1 ml-4">
+                    <li>Micro: Líneas que pasan por Antonio Varas</li>
+                    <li>A 2 cuadras de Plaza Aníbal Pinto</li>
+                    <li>Cerca del centro comercial</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
