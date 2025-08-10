@@ -27,8 +27,8 @@ const InAction: React.FC = () => {
   ];
 
   const stats = [
-    { number: '150+', label: 'Audiencias Exitosas', icon: Users },
-    { number: '95%', label: 'Casos Ganados', icon: Award },
+    { number: '500+', label: 'Audiencias Exitosas', icon: Users },
+    { number: '100%', label: 'Casos Ganados', icon: Award },
     { number: '24/7', label: 'Disponibilidad', icon: Calendar }
   ];
 

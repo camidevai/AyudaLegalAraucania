@@ -329,36 +329,7 @@ const Contact: React.FC = () => {
               </motion.div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="mt-8 bg-primary-50 p-6 rounded-lg"
-            >
-              <h3 className="text-lg font-bold text-primary-700 mb-4 flex items-center">
-                <MapPin className="h-5 w-5 mr-2" />
-                Referencias para llegar
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
-                <div>
-                  <p className="font-medium mb-2">🚗 En vehículo:</p>
-                  <ul className="list-disc list-inside space-y-1 ml-4">
-                    <li>Desde Ruta 5: Tomar salida Temuco Centro</li>
-                    <li>Dirigirse hacia Antonio Varas</li>
-                    <li>Estacionamiento disponible en el edificio</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-medium mb-2">🚌 En transporte público:</p>
-                  <ul className="list-disc list-inside space-y-1 ml-4">
-                    <li>Micro: Líneas que pasan por Antonio Varas</li>
-                    <li>A 2 cuadras de Plaza Aníbal Pinto</li>
-                    <li>Cerca del centro comercial</li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
+          
           </div>
         </div>
       </section>
