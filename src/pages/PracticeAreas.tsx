@@ -15,6 +15,19 @@ const getIcon = (iconName: string, size: number = 16) => {
   }
 };
 
+// Mapeo de imágenes para cada área de práctica
+const getAreaImage = (areaId: string): string => {
+  const imageMap: { [key: string]: string } = {
+    'derecho-civil': '/img/casos/Suspension_condicional_del_procedimiento.png', // Imagen legal general
+    'derecho-penal': '/img/casos/acuerdo_reparatorio_en_delito_patrimonia.png', // Casos penales
+    'derecho-laboral': '/img/casos/pensión_de_alimentos_y_cumplimiento_efectivo.png', // Temas laborales/económicos
+    'derecho-familia': '/img/casos/cuidado_personal_y_regimen_comunicacional.png', // Familia y menores
+    'derecho-comercial': '/img/casos/divorcio_de_mutuo_acuerdo.png', // Acuerdos comerciales
+    'derecho-inmobiliario': '/img/casos/autorizacion_de_viaje_internacional_de_enor.png' // Documentos/propiedades
+  };
+  return imageMap[areaId] || '/img/casos/Suspension_condicional_del_procedimiento.png';
+};
+
 const PracticeAreas: React.FC = () => {
   useEffect(() => {
     document.title = "Áreas de Práctica | Servicios Legales de Excelencia";
@@ -170,9 +183,9 @@ const PracticeAreas: React.FC = () => {
                 <div className={`${index % 2 === 0 ? 'lg:order-2' : ''}`}>
                   <div className="rounded-lg overflow-hidden shadow-xl">
                     <img
-                      src={`https://images.pexels.com/photos/${index % 6 + 5668853}/pexels-photo-${index % 6 + 5668853}.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`}
+                      src={getAreaImage(area.id)}
                       alt={area.title}
-                      className="w-full h-auto"
+                      className="w-full h-auto object-cover"
                     />
                   </div>
                 </div>

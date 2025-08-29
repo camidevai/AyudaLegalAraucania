@@ -120,7 +120,7 @@ const PrivacyPolicy: React.FC = () => {
                   <div className="space-y-2 text-gray-700">
                     <p><strong>Nombre:</strong> [Nombre del Abogado]</p>
                     <p><strong>RUT:</strong> [RUT del profesional]</p>
-                    <p><strong>Dirección:</strong> Edificio Capital, Antonio Varas #989, Of. 1302, Temuco</p>
+                    <p><strong>Dirección:</strong> Edificio Capital, Antonio Varas #989, Of. 1202, Temuco</p>
                     <p><strong>Teléfono:</strong> +56 9 8224 3242</p>
                     <p><strong>Email:</strong> Ayuda.legal.araucania@gmail.com</p>
                   </div>
@@ -439,7 +439,7 @@ const PrivacyPolicy: React.FC = () => {
                     <div className="flex items-start">
                       <AlertCircle className="h-5 w-5 text-primary-500 mr-3 mt-0.5" />
                       <span className="text-gray-700">
-                        Edificio Capital, Antonio Varas #989, Of. 1302, Temuco, Chile
+                        Edificio Capital, Antonio Varas #989, Of. 1202, Temuco, Chile
                       </span>
                     </div>
                   </div>

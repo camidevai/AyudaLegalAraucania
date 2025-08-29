@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
                     <h4 className="font-bold text-primary-500 text-lg">Dirección</h4>
                     <p className="text-gray-600">
                       Edificio Capital, Antonio Varas #989<br />
-                      Oficina 1302, Temuco
+                      Oficina 1202, Temuco
                     </p>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ const Contact: React.FC = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación Oficina - Edificio Capital, Antonio Varas #989, Of. 1302, Temuco"
+              title="Ubicación Oficina - Edificio Capital, Antonio Varas #989, Of. 1202, Temuco"
               className="absolute inset-0"
             ></iframe>
 
@@ -227,7 +227,7 @@ const Contact: React.FC = () => {
                   <h3 className="font-semibold text-gray-800 mb-1">Nuestra Oficina</h3>
                   <p className="text-sm text-gray-600 mb-2">
                     Edificio Capital<br />
-                    Antonio Varas #989, Of. 1302<br />
+                    Antonio Varas #989, Of. 1202<br />
                     Temuco, Chile
                   </p>
                   <div className="flex items-center text-xs text-primary-600">
@@ -285,12 +285,12 @@ const Contact: React.FC = () => {
                     <h3 className="text-xl font-bold text-primary-500 mb-2">Dirección Exacta</h3>
                     <p className="text-gray-700 mb-2">
                       <strong>Edificio Capital</strong><br />
-                      Antonio Varas #989, Oficina 1302<br />
+                      Antonio Varas #989, Oficina 1202<br />
                       Temuco, Región de La Araucanía<br />
                       Chile
                     </p>
                     <p className="text-sm text-gray-600">
-                      Piso 13, Oficina 1302
+                      Piso 12, Oficina 1202
                     </p>
                   </div>
                 </div>

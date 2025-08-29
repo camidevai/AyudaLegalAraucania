@@ -293,8 +293,8 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 3.5rem !important;
-    height: 3.5rem !important;
+    width: 5rem !important;
+    height: 5rem !important;
     background-color: #25d366 !important;
     border-radius: 50% !important;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
@@ -356,8 +356,8 @@
     .whatsapp-button {
       bottom: 1rem !important;
       right: 1rem !important;
-      width: 3.5rem !important;
-      height: 3.5rem !important;
+      width: 5rem !important;
+      height: 5rem !important;
     }
   }
 
@@ -366,8 +366,8 @@
     .whatsapp-button {
       bottom: 1.5rem !important;
       right: 1.5rem !important;
-      width: 4rem !important;
-      height: 4rem !important;
+      width: 4.5rem !important;
+      height: 4.5rem !important;
     }
   }
 
@@ -376,8 +376,43 @@
     .whatsapp-button {
       bottom: 2rem !important;
       right: 2rem !important;
-      width: 4rem !important;
-      height: 4rem !important;
+      width: 4.5rem !important;
+      height: 4.5rem !important;
     }
+  }
+
+  /* Line clamp utilities for uniform card heights */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Uniform button heights for cards */
+  .btn-uniform {
+    height: 3rem !important;
+    min-height: 3rem !important;
+    max-height: 3rem !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
   }
 }

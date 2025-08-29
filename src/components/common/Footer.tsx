@@ -88,17 +88,19 @@ const Footer: React.FC = () => {
             {/* Social Links */}
             <div className="flex space-x-4">
               {[
-                { icon: Instagram, href: "https://www.instagram.com/ayuda_legal_chile/", label: "Instagram" },
-                { icon: Mail, href: "mailto:Ayuda.legal.araucania@gmail.com", label: "Email" },
-                { icon: Phone, href: "tel:+56982243242", label: "Teléfono" }
-              ].map(({ icon: Icon, href, label }, index) => (
+                { icon: Instagram, href: "https://www.instagram.com/ayuda_legal_chile/", label: "Instagram Ayuda Legal", badge: "Despacho", bgColor: "bg-gradient-to-br from-purple-500 to-pink-500" },
+                { icon: Instagram, href: "https://www.instagram.com/abogado_julio_m/", label: "Instagram Personal", badge: "Personal", bgColor: "bg-gradient-to-br from-blue-500 to-purple-500" },
+                { icon: Mail, href: "mailto:Ayuda.legal.araucania@gmail.com", label: "Email", bgColor: "bg-white/10" },
+                { icon: Phone, href: "tel:+56982243242", label: "Teléfono", bgColor: "bg-white/10" }
+              ].map(({ icon: Icon, href, label, badge, bgColor }, index) => (
                 <motion.a
                   key={label}
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="group p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-white/70 hover:text-white hover:bg-accent-500/20 transition-all duration-300"
+                  className={`group p-3 ${bgColor} backdrop-blur-sm rounded-xl border border-white/20 text-white/70 hover:text-white hover:bg-accent-500/20 transition-all duration-300 relative`}
                   aria-label={label}
+                  title={label}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -106,7 +108,12 @@ const Footer: React.FC = () => {
                   transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
                   viewport={{ once: true }}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                  {badge && (
+                    <div className="absolute -top-2 -right-2 bg-accent-500 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                      {badge}
+                    </div>
+                  )}
                 </motion.a>
               ))}
             </div>
@@ -197,7 +204,7 @@ const Footer: React.FC = () => {
               {[
                 { icon: Phone, text: "+56 9 8224 3242", href: "tel:+56982243242" },
                 { icon: Mail, text: "Ayuda.legal.araucania@gmail.com", href: "mailto:Ayuda.legal.araucania@gmail.com" },
-                { icon: MapPin, text: "Edificio Capital, Antonio Varas #989, Of. 1302, Temuco", href: "#" }
+                { icon: MapPin, text: "Edificio Capital, Antonio Varas #989, Of. 1202, Temuco", href: "#" }
               ].map(({ icon: Icon, text, href }, index) => (
                 <motion.li
                   key={text}
