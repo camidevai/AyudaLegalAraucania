@@ -161,21 +161,25 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-lg overflow-hidden shadow-2xl">
-              <div className="w-full aspect-video bg-gray-200">
-                {/* Placeholder for video - in production replace with actual video component */}
-                <div className="absolute inset-0 flex items-center justify-center bg-primary-700 bg-opacity-75">
-                  <div className="text-center text-white">
-                    <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                      <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center">
-                        <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-accent-500 ml-1"></div>
-                      </div>
-                    </div>
-                    <p className="text-xl mb-2">Video de presentación profesional</p>
-                    <p className="text-sm">Haga clic para reproducir</p>
-                  </div>
-                </div>
+          <div className="max-w-sm sm:max-w-md mx-auto">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl bg-black">
+              {/* YouTube Short embed - aspect ratio 9:16 */}
+              <div className="w-full" style={{ aspectRatio: '9/16' }}>
+                <iframe
+                  src="https://www.youtube.com/embed/1yInLasDTCk?rel=0&modestbranding=1&showinfo=0"
+                  title="Video de presentación profesional - Ayuda Legal Araucanía"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full border-0 rounded-lg"
+                  loading="lazy"
+                ></iframe>
+              </div>
+
+              {/* Video caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                <p className="text-white text-sm text-center">
+                  Conozca más sobre nuestros servicios legales
+                </p>
               </div>
             </div>
           </div>
