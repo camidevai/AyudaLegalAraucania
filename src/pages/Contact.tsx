@@ -1,11 +1,65 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react';
+import { sendCompleteEmailFlow, prepareTemplateParams } from '../utils/emailjs';
 
 const Contact: React.FC = () => {
   useEffect(() => {
     document.title = "Contacto | Servicios Legales de Excelencia";
   }, []);
+
+  // Estados para el formulario
+  const [formData, setFormData] = useState({
+    from_name: '',
+    from_email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Manejar cambios en el formulario
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Enviar formulario
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Preparar parámetros del template
+      const templateParams = prepareTemplateParams(formData, 'Formulario de Contacto Principal');
+
+      // Enviar tanto la notificación como la respuesta automática
+      const result = await sendCompleteEmailFlow(templateParams);
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({
+          from_name: '',
+          from_email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Error en el envío de emails');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="pt-20">
@@ -101,17 +155,44 @@ const Contact: React.FC = () => {
               <div className="bg-white rounded-lg shadow-xl p-6 md:p-8">
                 <h3 className="text-2xl font-bold text-primary-500 mb-6">Envíe su Consulta</h3>
                 
-                <form className="space-y-4">
+                {/* Mensajes de estado */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center"
+                  >
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                    <span className="text-green-700">¡Mensaje enviado exitosamente! Nos contactaremos pronto.</span>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center"
+                  >
+                    <AlertCircle className="h-5 w-5 text-red-500 mr-3" />
+                    <span className="text-red-700">Error al enviar el mensaje. Por favor, intente nuevamente.</span>
+                  </motion.div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="fullname" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 mb-1">
                         Nombre completo *
                       </label>
                       <input
                         type="text"
-                        id="fullname"
+                        id="from_name"
+                        name="from_name"
+                        value={formData.from_name}
+                        onChange={handleInputChange}
                         className="input-field"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -121,49 +202,53 @@ const Contact: React.FC = () => {
                       <input
                         type="tel"
                         id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                         className="input-field"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="from_email" className="block text-sm font-medium text-gray-700 mb-1">
                       Correo electrónico *
                     </label>
                     <input
                       type="email"
-                      id="email"
+                      id="from_email"
+                      name="from_email"
+                      value={formData.from_email}
+                      onChange={handleInputChange}
                       className="input-field"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                      Asunto *
+                      Área de consulta *
                     </label>
-                    <input
-                      type="text"
+                    <select
                       id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
                       className="input-field"
                       required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="area" className="block text-sm font-medium text-gray-700 mb-1">
-                      Área de consulta
-                    </label>
-                    <select id="area" className="input-field">
+                      disabled={isSubmitting}
+                    >
                       <option value="">Seleccione un área</option>
-                      <option value="civil">Derecho Civil</option>
-                      <option value="penal">Derecho Penal</option>
-                      <option value="laboral">Derecho Laboral</option>
-                      <option value="familia">Derecho de Familia</option>
-                      <option value="comercial">Derecho Comercial</option>
-                      <option value="inmobiliario">Derecho Inmobiliario</option>
-                      <option value="otro">Otro</option>
+                      <option value="Derecho Civil">Derecho Civil</option>
+                      <option value="Derecho Penal">Derecho Penal</option>
+                      <option value="Derecho Laboral">Derecho Laboral</option>
+                      <option value="Derecho de Familia">Derecho de Familia</option>
+                      <option value="Derecho Comercial">Derecho Comercial</option>
+                      <option value="Derecho Inmobiliario">Derecho Inmobiliario</option>
+                      <option value="Otro">Otro</option>
                     </select>
                   </div>
 
@@ -173,28 +258,44 @@ const Contact: React.FC = () => {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={6}
                       className="input-field resize-none"
                       placeholder="Describa brevemente su situación legal..."
                       required
+                      disabled={isSubmitting}
                     ></textarea>
                   </div>
 
                   <div>
                     <label className="flex items-start">
-                      <input type="checkbox" className="mt-1 mr-2" required />
+                      <input type="checkbox" className="mt-1 mr-2" required disabled={isSubmitting} />
                       <span className="text-sm text-gray-600">
-                        Acepto la política de privacidad y el tratamiento de mis datos para ser contactado.
+                        Acepto la <a href="/politica-privacidad" className="text-primary-500 hover:underline">política de privacidad</a> y el tratamiento de mis datos para ser contactado.
                       </span>
                     </label>
                   </div>
 
                   <button
                     type="submit"
-                    className="btn-primary w-full flex items-center justify-center"
+                    disabled={isSubmitting}
+                    className={`btn-primary w-full flex items-center justify-center ${
+                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                    }`}
                   >
-                    Enviar consulta
-                    <Send className="h-4 w-4 ml-2" />
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        Enviar consulta
+                        <Send className="h-4 w-4 ml-2" />
+                      </>
+                    )}
                   </button>
                 </form>
               </div>

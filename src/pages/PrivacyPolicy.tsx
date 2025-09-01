@@ -118,8 +118,7 @@ const PrivacyPolicy: React.FC = () => {
                     El responsable del tratamiento de sus datos personales es:
                   </p>
                   <div className="space-y-2 text-gray-700">
-                    <p><strong>Nombre:</strong> [Nombre del Abogado]</p>
-                    <p><strong>RUT:</strong> [RUT del profesional]</p>
+                    <p><strong>Nombre:</strong> Julio Manquian</p>
                     <p><strong>Dirección:</strong> Edificio Capital, Antonio Varas #989, Of. 1202, Temuco</p>
                     <p><strong>Teléfono:</strong> +56 9 8224 3242</p>
                     <p><strong>Email:</strong> Ayuda.legal.araucania@gmail.com</p>
