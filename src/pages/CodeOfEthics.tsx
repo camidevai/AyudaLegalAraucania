@@ -278,29 +278,29 @@ const CodeOfEthics: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="flex justify-center mb-6">
-                <div className="p-4 bg-white/10 backdrop-blur-sm rounded-full">
-                  <Scale className="h-12 w-12 text-accent-400" />
+                <div className="p-4 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                  <Scale className="h-12 w-12 text-white" />
                 </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Nuestro Compromiso Ético</h2>
-              <p className="text-xl mb-8 max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Nuestro Compromiso Ético</h2>
+              <p className="text-xl mb-8 max-w-3xl mx-auto text-gray-100">
                 Nos comprometemos a mantener estos estándares éticos en cada caso, cada consulta y cada
                 interacción profesional. Su confianza es nuestro mayor activo.
               </p>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-                <p className="text-lg italic">
+              <div className="bg-white/15 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto border border-white/20">
+                <p className="text-lg italic text-white font-medium">
                   "La ética no es solo lo que hacemos cuando otros nos observan,
                   sino lo que hacemos cuando nadie está mirando."
                 </p>
-                <p className="text-sm mt-4 text-accent-300">
+                <p className="text-sm mt-4 text-gray-200 font-medium">
                   - Principio fundamental de nuestra práctica profesional
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <a href="/contacto" className="btn-accent">
+                <a href="/contacto" className="btn bg-accent-500 text-white hover:bg-accent-400 shadow-lg hover:shadow-xl transition-all duration-300">
                   Conocer Más
                 </a>
-                <a href="/sobre-mi" className="btn bg-white text-primary-500 hover:bg-gray-100">
+                <a href="/sobre-mi" className="btn bg-white text-primary-600 hover:bg-gray-50 hover:text-primary-700 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
                   Nuestro Equipo
                 </a>
               </div>
